@@ -25,9 +25,16 @@ const aboutIconMap: Record<string, React.ElementType> = {
 
 interface AboutSectionProps {
     data?: TourlyAboutData;
+    showButtons?: boolean;
+    hideButtons?: boolean;
 }
 
-export default function AboutSection({ data = site.about }: AboutSectionProps) {
+export default function AboutSection({
+    data = site.about,
+    showButtons = true,
+    hideButtons = false,
+}: AboutSectionProps) {
+    const shouldShowButtons = showButtons && !hideButtons;
     return (
         <section className="relative w-full py-8 lg:py-12 bg-white overflow-hidden">
             {/* Top-left diamond pattern */}
@@ -136,47 +143,49 @@ export default function AboutSection({ data = site.about }: AboutSectionProps) {
                 </motion.div>
 
                 {/* CTA Buttons */}
-                <motion.div
-                    initial={{ opacity: 0, y: 14 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.3 }}
-                    className="flex flex-wrap items-center justify-center gap-4 sm:gap-6"
-                >
-                    {/* Contact Us button */}
+                {shouldShowButtons && (
                     <motion.div
-                        whileHover={{ scale: 1.04 }}
-                        whileTap={{ scale: 0.96 }}
-                        transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                        initial={{ opacity: 0, y: 14 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.3 }}
+                        className="flex flex-wrap items-center justify-center gap-4 sm:gap-6"
                     >
-                        <Link
-                            href={data.contactButton.href}
-                            className="group flex items-center gap-4 pl-7 pr-2.5 py-2.5 rounded-full bg-gradient-to-r from-[#ea580c] via-[#f15a24] to-[#f97316] text-white font-medium text-sm sm:text-base shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 transition-all duration-200"
+                        {/* Contact Us button */}
+                        <motion.div
+                            whileHover={{ scale: 1.04 }}
+                            whileTap={{ scale: 0.96 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 17 }}
                         >
-                            <span>{data.contactButton.text}</span>
-                            <div className="w-8 h-8 rounded-full bg-white text-[#f15a24] flex items-center justify-center shrink-0 shadow-sm transition-transform duration-200 group-hover:translate-x-0.5">
-                                <ArrowRight className="w-4 h-4 stroke-[2.2]" />
-                            </div>
-                        </Link>
-                    </motion.div>
+                            <Link
+                                href={data.contactButton.href}
+                                className="group flex items-center gap-4 pl-7 pr-2.5 py-2.5 rounded-full bg-gradient-to-r from-[#ea580c] via-[#f15a24] to-[#f97316] text-white font-medium text-sm sm:text-base shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 transition-all duration-200"
+                            >
+                                <span>{data.contactButton.text}</span>
+                                <div className="w-8 h-8 rounded-full bg-white text-[#f15a24] flex items-center justify-center shrink-0 shadow-sm transition-transform duration-200 group-hover:translate-x-0.5">
+                                    <ArrowRight className="w-4 h-4 stroke-[2.2]" />
+                                </div>
+                            </Link>
+                        </motion.div>
 
-                    {/* Read More button */}
-                    <motion.div
-                        whileHover={{ scale: 1.04 }}
-                        whileTap={{ scale: 0.96 }}
-                        transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                    >
-                        <Link
-                            href={data.readMoreButton.href}
-                            className="group flex items-center gap-4 pl-7 pr-2.5 py-2 rounded-full border-2 border-[#f15a24] text-[#13253f] hover:bg-orange-50/50 font-medium text-sm sm:text-base transition-all duration-200"
+                        {/* Read More button */}
+                        <motion.div
+                            whileHover={{ scale: 1.04 }}
+                            whileTap={{ scale: 0.96 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 17 }}
                         >
-                            <span>{data.readMoreButton.text}</span>
-                            <div className="w-8 h-8 rounded-full border border-[#f15a24] text-[#f15a24] flex items-center justify-center shrink-0 transition-transform duration-200 group-hover:translate-x-0.5">
-                                <ArrowRight className="w-4 h-4 stroke-[2.2]" />
-                            </div>
-                        </Link>
+                            <Link
+                                href={data.readMoreButton.href}
+                                className="group flex items-center gap-4 pl-7 pr-2.5 py-2 rounded-full border-2 border-[#f15a24] text-[#13253f] hover:bg-orange-50/50 font-medium text-sm sm:text-base transition-all duration-200"
+                            >
+                                <span>{data.readMoreButton.text}</span>
+                                <div className="w-8 h-8 rounded-full border border-[#f15a24] text-[#f15a24] flex items-center justify-center shrink-0 transition-transform duration-200 group-hover:translate-x-0.5">
+                                    <ArrowRight className="w-4 h-4 stroke-[2.2]" />
+                                </div>
+                            </Link>
+                        </motion.div>
                     </motion.div>
-                </motion.div>
+                )}
             </div>
         </section>
     );

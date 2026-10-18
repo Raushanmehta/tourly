@@ -18,6 +18,8 @@ export default function DestintaionSection({ data = site.destinations }: Destint
         ((data.destinationsList || data.allDestinations || data.items || []) as unknown as DestinationCardData[]);
     const itemsPerPage = 8;
     const totalPages = Math.max(1, Math.ceil(destinationsList.length / itemsPerPage));
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const displayedDestinations = destinationsList.slice(startIndex, startIndex + itemsPerPage);
 
     return (
         <section className="relative w-full py-8 lg:py-12 bg-gradient-to-b from-[#f8fbfe] via-white to-[#f4f9fd] overflow-hidden">
@@ -44,7 +46,7 @@ export default function DestintaionSection({ data = site.destinations }: Destint
 
                 {/* Destinations grid container */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-4 mb-4 sm:mb-6">
-                    {destinationsList.map((item) => (
+                    {displayedDestinations.map((item) => (
                         <DestinationCard2 key={item.id} item={item} />
                     ))}
                 </div>

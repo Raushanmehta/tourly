@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import {
     Carousel,
@@ -67,39 +67,11 @@ export default function HeroSection({ data = site.hero }: HeroSectionProps) {
                                     alt="Hero destination"
                                     fill
                                     priority={index === 0}
-                                    className="object-cover object-center brightness-[0.96]"
+                                    className="object-cover object-center"
                                 />
 
                                 {/* Subtle overall overlay */}
-                                <div className="absolute inset-0 bg-black/15 pointer-events-none" />
-
-                                {/* Center frosted card */}
-                                <div className="absolute inset-0 flex items-center justify-center px-4 sm:px-6 z-20">
-                                    <div className="w-full max-w-3xl lg:max-w-[860px] bg-[#054553]/75 sm:bg-[#044453]/75 backdrop-blur-xs border border-white/20 rounded-2xl sm:rounded-3xl px-6 py-10 sm:px-12 sm:py-14 md:px-16 md:py-16 text-center shadow-2xl">
-                                        <AnimatePresence mode="wait">
-                                            {current === index && (
-                                                <motion.div
-                                                    key={`slide-content-${slide.id}`}
-                                                    initial={{ opacity: 0, y: 18 }}
-                                                    animate={{ opacity: 1, y: 0 }}
-                                                    exit={{ opacity: 0, y: -18 }}
-                                                    transition={{ duration: 0.55, ease: "easeOut" }}
-                                                    className="flex flex-col items-center"
-                                                >
-                                                    {/* Headline */}
-                                                    <h1 className="font-sans font-bold text-3xl sm:text-4xl md:text-5xl lg:text-[54px] text-white leading-[1.18] tracking-tight whitespace-pre-line">
-                                                        {slide.title}
-                                                    </h1>
-
-                                                    {/* Subtitle description */}
-                                                    <p className="text-white/95 text-xs sm:text-sm md:text-base font-normal max-w-2xl mx-auto mt-4 sm:mt-6 leading-relaxed">
-                                                        {slide.description}
-                                                    </p>
-                                                </motion.div>
-                                            )}
-                                        </AnimatePresence>
-                                    </div>
-                                </div>
+                                <div className="absolute inset-0 bg-black/10 pointer-events-none" />
                             </div>
                         </CarouselItem>
                     ))}

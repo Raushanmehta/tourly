@@ -94,8 +94,8 @@ export default function TestimonialSection({ data = site.testimonials }: Testimo
                     </p>
                 </div>
 
-                {/* Shadcn UI Carousel */}
-                <div className="relative w-full">
+                {/* Shadcn UI Carousel with floating side navigation arrows */}
+                <div className="relative w-full group">
                     <Carousel
                         setApi={setApi}
                         opts={{
@@ -118,47 +118,44 @@ export default function TestimonialSection({ data = site.testimonials }: Testimo
                         </CarouselContent>
                     </Carousel>
 
-                    {/* Bottom navigation bar */}
-                    <div className="flex items-center justify-center gap-4 sm:gap-5 mt-4 select-none">
-                        {/* Prev slide button */}
-                        <motion.button
-                            type="button"
-                            whileHover={{ scale: 1.08 }}
-                            whileTap={{ scale: 0.94 }}
-                            onClick={() => api?.scrollPrev()}
-                            aria-label="Previous testimonial"
-                            className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white text-gray-700 shadow-md border border-gray-100 flex items-center justify-center hover:bg-gray-50 transition-all cursor-pointer"
-                        >
-                            <FaChevronLeft className="text-xs sm:text-sm text-gray-600" />
-                        </motion.button>
+                    {/* Floating Left navigation arrow */}
+                    <motion.button
+                        type="button"
+                        whileHover={{ scale: 1.12 }}
+                        whileTap={{ scale: 0.92 }}
+                        onClick={() => api?.scrollPrev()}
+                        aria-label="Previous testimonial"
+                        className="absolute left-1 sm:left-2 md:-left-4 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/95 hover:bg-gradient-to-r hover:from-[#ea580c] hover:to-[#f15a24] text-gray-800 hover:text-white shadow-xl hover:shadow-orange-500/30 border border-gray-100/90 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300 cursor-pointer pointer-events-none group-hover:pointer-events-auto"
+                    >
+                        <FaChevronLeft className="text-sm sm:text-base pr-0.5" />
+                    </motion.button>
 
-                        {/* Navigation dots */}
-                        <div className="flex items-center gap-2 px-1">
-                            {data.items.map((item, idx) => (
-                                <button
-                                    key={item.id}
-                                    type="button"
-                                    onClick={() => api?.scrollTo(idx)}
-                                    aria-label={`Go to testimonial ${idx + 1}`}
-                                    className={`transition-all duration-300 cursor-pointer ${current === idx
-                                        ? "w-3.5 h-3.5 rounded-full bg-[#f15a24] shadow-sm"
-                                        : "w-2.5 h-2.5 rounded-full bg-[#bae6fd] hover:bg-sky-300"
-                                        }`}
-                                />
-                            ))}
-                        </div>
+                    {/* Floating Right navigation arrow */}
+                    <motion.button
+                        type="button"
+                        whileHover={{ scale: 1.12 }}
+                        whileTap={{ scale: 0.92 }}
+                        onClick={() => api?.scrollNext()}
+                        aria-label="Next testimonial"
+                        className="absolute right-1 sm:right-2 md:-right-4 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/95 hover:bg-gradient-to-r hover:from-[#ea580c] hover:to-[#f15a24] text-gray-800 hover:text-white shadow-xl hover:shadow-orange-500/30 border border-gray-100/90 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300 cursor-pointer pointer-events-none group-hover:pointer-events-auto"
+                    >
+                        <FaChevronRight className="text-sm sm:text-base pl-0.5" />
+                    </motion.button>
 
-                        {/* Next slide button */}
-                        <motion.button
-                            type="button"
-                            whileHover={{ scale: 1.08 }}
-                            whileTap={{ scale: 0.94 }}
-                            onClick={() => api?.scrollNext()}
-                            aria-label="Next testimonial"
-                            className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-gradient-to-r from-[#ea580c] via-[#f15a24] to-[#f97316] text-white shadow-lg shadow-orange-500/35 flex items-center justify-center hover:shadow-xl transition-all cursor-pointer"
-                        >
-                            <FaChevronRight className="text-xs sm:text-sm text-white" />
-                        </motion.button>
+                    {/* Bottom navigation dots */}
+                    <div className="flex items-center justify-center gap-2 mt-5 select-none">
+                        {data.items.map((item, idx) => (
+                            <button
+                                key={item.id}
+                                type="button"
+                                onClick={() => api?.scrollTo(idx)}
+                                aria-label={`Go to testimonial ${idx + 1}`}
+                                className={`transition-all duration-300 cursor-pointer ${current === idx
+                                    ? "w-3.5 h-3.5 rounded-full bg-[#f15a24] shadow-sm"
+                                    : "w-2.5 h-2.5 rounded-full bg-[#bae6fd] hover:bg-sky-300"
+                                    }`}
+                            />
+                        ))}
                     </div>
                 </div>
             </div>

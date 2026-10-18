@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
-    FaStar,
     FaArrowRight,
     FaRegCalendarAlt,
     FaBed,
@@ -63,24 +62,9 @@ export default function PackageDetailSection({ data = site.packageDetail }: Pack
                             </div>
 
                             {/* Title */}
-                            <h1 className="font-extrabold text-2xl sm:text-3xl text-[#0f1d33] tracking-tight">
+                            <h1 className="font-extrabold text-2xl sm:text-3xl text-[#0f1d33] tracking-tight mb-2">
                                 {data.title}
                             </h1>
-
-                            {/* Reviews rating */}
-                            <div className="flex items-center gap-2 mt-2 mb-3">
-                                <div className="flex items-center gap-1 text-[#f15a24]">
-                                    {Array.from({ length: 5 }).map((_, i) => (
-                                        <FaStar key={i} className="w-3.5 h-3.5" />
-                                    ))}
-                                </div>
-                                <span className="font-bold text-xs sm:text-sm text-[#0f1d33]">
-                                    {data.rating}
-                                </span>
-                                <span className="text-gray-400 text-xs font-normal">
-                                    {data.reviewsCount}
-                                </span>
-                            </div>
 
                             {/* Short description */}
                             <p className="text-gray-500 text-xs sm:text-sm leading-relaxed mb-4 font-normal">
@@ -147,26 +131,14 @@ export default function PackageDetailSection({ data = site.packageDetail }: Pack
                             </div>
                         </div>
 
-                        {/* Price booking strip */}
-                        <div className="bg-white rounded-xl p-4 sm:p-5 shadow-xs border border-gray-100 flex items-center justify-between gap-3">
-                            <div>
-                                <span className="text-xs text-gray-400 font-medium block">
-                                    {data.priceLabel}
-                                </span>
-                                <span className="text-[#f15a24] text-2xl sm:text-3xl font-black tracking-tight leading-none block mt-0.5">
-                                    {data.price}
-                                </span>
-                                <span className="text-xs text-gray-400 block mt-0.5">
-                                    {data.priceUnit}
-                                </span>
-                            </div>
-
+                        {/* Booking strip */}
+                        <div className="bg-white rounded-xl p-4 sm:p-5 shadow-xs border border-gray-100 flex items-center justify-center">
                             <Link
                                 href={data.enquiryButton.href}
-                                className="py-2.5 px-5 sm:px-6 rounded-xl bg-gradient-to-r from-[#ea580c] via-[#f15a24] to-[#f97316] text-white font-bold text-xs sm:text-sm flex items-center gap-2 shadow-md shadow-orange-500/25 hover:scale-102 transition-transform cursor-pointer shrink-0"
+                                className="w-full py-3 px-6 rounded-xl bg-gradient-to-r from-[#ea580c] via-[#f15a24] to-[#f97316] text-white font-bold text-sm sm:text-base flex items-center justify-center gap-2 shadow-md shadow-orange-500/25 hover:opacity-95 transition-all cursor-pointer text-center"
                             >
                                 <span>{data.enquiryButton.text}</span>
-                                <FaArrowRight className="w-3.5 h-3.5 ml-0.5" />
+                                <FaArrowRight className="w-4 h-4 ml-0.5" />
                             </Link>
                         </div>
                     </div>

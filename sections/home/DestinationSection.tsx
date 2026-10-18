@@ -2,7 +2,7 @@
 
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { FaChevronLeft, FaChevronRight, FaMapMarkerAlt } from "react-icons/fa";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import DestinationCard from "@/components/cards/DestinationCard";
 import { site, type TourlyDestinationsData } from "@/data/index";
 
@@ -69,50 +69,43 @@ export default function DestinationSection({ data = site.destinations }: Destina
                             {data.description}
                         </motion.p>
                     </div>
-
-                    {/* Right navigation controls */}
-                    <div className="flex md:absolute right-0 bottom-0 md:bottom-0 flex-col items-center md:items-end justify-center gap-2 mt-4 md:mt-0 pr-0 md:pr-2">
-                        {/* Decorative faint pin */}
-                        <FaMapMarkerAlt className="text-3xl text-[#38bdf8]/40 mr-1 hidden md:block" />
-
-                        {/* Arrow buttons */}
-                        <div className="flex items-center gap-2.5">
-                            {/* Prev button */}
-                            <motion.button
-                                type="button"
-                                whileHover={{ scale: 1.08 }}
-                                whileTap={{ scale: 0.94 }}
-                                onClick={() => handleScroll("left")}
-                                aria-label="Previous destination"
-                                className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white shadow-md border border-gray-100 flex items-center justify-center text-gray-800 hover:text-[#f15a24] hover:shadow-lg transition-all cursor-pointer"
-                            >
-                                <FaChevronLeft className="text-sm pr-0.5" />
-                            </motion.button>
-
-                            {/* Next button */}
-                            <motion.button
-                                type="button"
-                                whileHover={{ scale: 1.08 }}
-                                whileTap={{ scale: 0.94 }}
-                                onClick={() => handleScroll("right")}
-                                aria-label="Next destination"
-                                className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-gradient-to-r from-[#ea580c] via-[#f15a24] to-[#f97316] text-white flex items-center justify-center shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 transition-all cursor-pointer"
-                            >
-                                <FaChevronRight className="text-sm pl-0.5" />
-                            </motion.button>
-                        </div>
-                    </div>
                 </div>
 
-                {/* Interactive expanding cards row */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.55 }}
-                    ref={scrollRef}
-                    className="flex items-stretch gap-3.5 sm:gap-4 overflow-x-auto pb-4 pt-1 pr-6 scroll-smooth [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-                >
+                {/* Interactive expanding cards row with mid-height floating arrow buttons */}
+                <div className="relative group">
+                    {/* Left floating navigation arrow */}
+                    <motion.button
+                        type="button"
+                        whileHover={{ scale: 1.12 }}
+                        whileTap={{ scale: 0.92 }}
+                        onClick={() => handleScroll("left")}
+                        aria-label="Previous destination"
+                        className="absolute left-1 sm:left-2 md:-left-4 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/95 hover:bg-gradient-to-r hover:from-[#ea580c] hover:to-[#f15a24] text-gray-800 hover:text-white shadow-xl hover:shadow-orange-500/30 border border-gray-100/90 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300 cursor-pointer pointer-events-none group-hover:pointer-events-auto"
+                    >
+                        <FaChevronLeft className="text-sm sm:text-base pr-0.5" />
+                    </motion.button>
+
+                    {/* Right floating navigation arrow */}
+                    <motion.button
+                        type="button"
+                        whileHover={{ scale: 1.12 }}
+                        whileTap={{ scale: 0.92 }}
+                        onClick={() => handleScroll("right")}
+                        aria-label="Next destination"
+                        className="absolute right-1 sm:right-2 md:-right-4 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/95 hover:bg-gradient-to-r hover:from-[#ea580c] hover:to-[#f15a24] text-gray-800 hover:text-white shadow-xl hover:shadow-orange-500/30 border border-gray-100/90 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300 cursor-pointer pointer-events-none group-hover:pointer-events-auto"
+                    >
+                        <FaChevronRight className="text-sm sm:text-base pl-0.5" />
+                    </motion.button>
+
+                    {/* Interactive expanding cards row */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.55 }}
+                        ref={scrollRef}
+                        className="flex items-stretch gap-3.5 sm:gap-4 overflow-x-auto pb-4 pt-1 pr-6 scroll-smooth [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                    >
                     {(data.destinationsList || data.items || []).map((item) => {
                         const isHovered = hoveredId === item.id;
                         return (
@@ -132,6 +125,7 @@ export default function DestinationSection({ data = site.destinations }: Destina
                         );
                     })}
                 </motion.div>
+                </div>
             </div>
         </section>
     );

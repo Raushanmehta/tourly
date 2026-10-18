@@ -357,6 +357,24 @@
                                 "image": "/images/hero-3.jpg",
                                 "title": "Create Memories That\nLast a Lifetime",
                                 "description": "Witness magical hot air balloon sunrises and ancient wonderlands with our premier custom holiday vacation packages."
+                            },
+                            {
+                                "id": 4,
+                                "image": "/images/hero-4.jpg",
+                                "title": "Tropical Paradise\nOverwater Getaways",
+                                "description": "Relax in serene turquoise lagoons, vibrant coral reefs, and luxury overwater villas designed for pure bliss."
+                            },
+                            {
+                                "id": 5,
+                                "image": "/images/hero-5.jpg",
+                                "title": "Majestic Alpine Peaks\n& Crystal Lakes",
+                                "description": "Breathe the crisp mountain air and discover serene glacial lakes nestled within the world's most iconic summits."
+                            },
+                            {
+                                "id": 6,
+                                "image": "/images/hero-6.jpg",
+                                "title": "Timeless Coastal Charm\nAlong the Riviera",
+                                "description": "Soak in romantic cliffside vistas, colourful Mediterranean villages, and unforgettable sunsets on the ocean."
                             }
                         ]
                     }

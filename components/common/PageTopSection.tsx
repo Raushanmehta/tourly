@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { FaChevronRight } from "react-icons/fa";
-import { site } from "@/data/index";
+import { site, type TourlyPageTopData } from "@/data/index";
 
 export interface BreadcrumbItem {
     label: string;
@@ -16,6 +16,7 @@ interface PageTopSectionProps {
     title?: string;
     breadcrumbs?: BreadcrumbItem[];
     bgImage?: string;
+    data?: TourlyPageTopData;
 }
 
 export default function PageTopSection({
@@ -25,9 +26,10 @@ export default function PageTopSection({
         { label: "About Us" },
     ],
     bgImage,
+    data = site.pageTopSection,
 }: PageTopSectionProps) {
-    const defaultBg = site.pageTopSection?.bgImage || "/images/page-top-bg.jpg";
-    const defaultTitle = site.pageTopSection?.defaultTitle || "About Us";
+    const defaultBg = data?.bgImage || site.pageTopSection?.bgImage || "/images/page-top-bg.jpg";
+    const defaultTitle = data?.defaultTitle || site.pageTopSection?.defaultTitle || "About Us";
     const activeBg = bgImage || defaultBg;
     const activeTitle = title || defaultTitle;
 
