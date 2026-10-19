@@ -95,7 +95,7 @@ export default function StatsSection({ data = site.stats }: StatsSectionProps) {
 
             <div className="relative z-10 max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 w-full">
                 <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8">
-                    {/* Left video play area */}
+                    {/* Video play area */}
                     <div className="flex items-center gap-4 sm:gap-6 self-center lg:self-center pl-2 sm:pl-6">
                         {/* Playful curved indicator */}
                         <div className="flex flex-col items-end text-white drop-shadow-md select-none">
@@ -149,7 +149,7 @@ export default function StatsSection({ data = site.stats }: StatsSectionProps) {
                         </div>
                     </div>
 
-                    {/* Right floating stats card */}
+                    {/* Floating stats card */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -157,11 +157,11 @@ export default function StatsSection({ data = site.stats }: StatsSectionProps) {
                         transition={{ duration: 0.55 }}
                         className="w-full max-w-lg lg:max-w-xl bg-white rounded-3xl shadow-2xl p-6 sm:p-9 md:p-10 border border-gray-100"
                     >
-                        {/* 2x2 grid with divider */}
+                        {/* Stats grid */}
                         <div className="grid grid-cols-2 divide-x divide-gray-100">
                             {/* Left column */}
                             <div className="divide-y divide-gray-100 px-3 sm:px-6">
-                                {/* Stat 1: Tours Success */}
+                                {/* Tours stat */}
                                 <div className="pb-6 sm:pb-7 flex flex-col items-center text-center">
                                     <div className="w-12 h-12 sm:w-13 sm:h-13 rounded-full bg-[#e0f2fe]/75 text-[#054553] flex items-center justify-center mb-3 shadow-xs mx-auto">
                                         <Icon1 className="w-6 h-6 stroke-[2.2]" />
@@ -174,7 +174,7 @@ export default function StatsSection({ data = site.stats }: StatsSectionProps) {
                                     </p>
                                 </div>
 
-                                {/* Stat 3: Awards Winning */}
+                                {/* Awards stat */}
                                 <div className="pt-6 sm:pt-7 flex flex-col items-center text-center">
                                     <div className="w-12 h-12 sm:w-13 sm:h-13 rounded-full bg-[#e0f2fe]/75 text-[#054553] flex items-center justify-center mb-3 shadow-xs mx-auto">
                                         <Icon3 className="w-6 h-6 stroke-[2.2]" />
@@ -190,7 +190,7 @@ export default function StatsSection({ data = site.stats }: StatsSectionProps) {
 
                             {/* Right column */}
                             <div className="divide-y divide-gray-100 px-3 sm:px-6">
-                                {/* Stat 2: Happy Traveler */}
+                                {/* Travelers stat */}
                                 <div className="pb-6 sm:pb-7 flex flex-col items-center text-center">
                                     <div className="w-12 h-12 sm:w-13 sm:h-13 rounded-full bg-[#e0f2fe]/75 text-[#054553] flex items-center justify-center mb-3 shadow-xs mx-auto">
                                         <Icon2 className="w-6 h-6 stroke-[2.2]" />
@@ -203,7 +203,7 @@ export default function StatsSection({ data = site.stats }: StatsSectionProps) {
                                     </p>
                                 </div>
 
-                                {/* Stat 4: Our Experience */}
+                                {/* Experience stat */}
                                 <div className="pt-6 sm:pt-7 flex flex-col items-center text-center">
                                     <div className="w-12 h-12 sm:w-13 sm:h-13 rounded-full bg-[#e0f2fe]/75 text-[#054553] flex items-center justify-center mb-3 shadow-xs mx-auto">
                                         <Icon4 className="w-6 h-6 stroke-[2.2]" />

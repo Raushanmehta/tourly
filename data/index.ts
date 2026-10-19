@@ -45,6 +45,8 @@ export type TourlyGalleryData = TourlySections["gallery"]["variants"]["TourlyGal
 export type TourlyPackagesData = TourlySections["packages"]["variants"]["TourlyPackages1"];
 export type TourlyPackageDetailData = TourlyPackagesData["packagesList"][number];
 export type TourlyPageTopData = TourlySections["pageTopSection"]["variants"]["TourlyPageTop1"];
+export type TourlyThankYouData = TourlySections["thankYou"]["variants"]["TourlyThankYou1"];
+export type TourlyNotFoundData = TourlySections["notFound"]["variants"]["TourlyNotFound1"];
 
 const siteMap = {
     topbar: sec.topbar.variants.TourlyTopbar1,
@@ -64,6 +66,8 @@ const siteMap = {
     packages: sec.packages.variants.TourlyPackages1,
     packageDetail: sec.packages.variants.TourlyPackages1.packagesList[0],
     pageTopSection: sec.pageTopSection.variants.TourlyPageTop1,
+    thankYou: sec.thankYou.variants.TourlyThankYou1,
+    notFound: sec.notFound.variants.TourlyNotFound1,
 
     // Home aggregation
     home: {

@@ -1,11 +1,11 @@
-import PageTopSection from "@/components/common/PageTopSection";
+import BreadCrumb from "@/components/common/BreadCrumb";
 import PackageSection from "@/sections/PackageSection";
 import { site } from "@/data/index";
 
 export default function PackagesPage() {
     return (
         <main>
-            <PageTopSection
+            <BreadCrumb
                 title="Packages"
                 data={site.pageTopSection}
                 breadcrumbs={[

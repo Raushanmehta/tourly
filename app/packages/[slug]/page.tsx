@@ -1,4 +1,4 @@
-import PageTopSection from "@/components/common/PageTopSection";
+import BreadCrumb from "@/components/common/BreadCrumb";
 import PackageDetailSection from "@/sections/PackageDetailSection";
 import { site } from "@/data/index";
 
@@ -19,7 +19,7 @@ export default async function PackageDetailPage({ params }: PageProps) {
 
     return (
         <main>
-            <PageTopSection
+            <BreadCrumb
                 title={pkg.title}
                 breadcrumbs={[
                     { label: "Home", href: "/" },

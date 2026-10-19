@@ -44,7 +44,7 @@ export default function DestinationCard({ item }: DestinationCardProps) {
                 {/* Subtle top vignette */}
                 <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-black/25 to-transparent pointer-events-none" />
 
-                {/* Bottom gradient fade overlay */}
+                {/* Gradient overlay */}
                 <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-[#02242b] via-[#033c47]/95 via-65% to-transparent pt-16 pb-3.5 px-3.5 sm:px-4 sm:pb-4 flex items-end justify-between gap-2.5 z-10">
                     <div className="min-w-0 flex-1">
                         {/* Destination title */}

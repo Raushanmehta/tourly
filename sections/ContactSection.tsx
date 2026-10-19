@@ -49,7 +49,7 @@ export default function ContactSection({ data = site.contact }: ContactSectionPr
     return (
         <section className="relative w-full py-8 lg:py-12 bg-gradient-to-b from-[#f8fbfe] via-white to-[#f4f9fd] overflow-hidden">
             <div className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10">
-                {/* Top contact info cards */}
+                {/* Top contact cards */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-4 mb-4 sm:mb-6">
                     {/* Office address card */}
                     <motion.div
@@ -138,7 +138,7 @@ export default function ContactSection({ data = site.contact }: ContactSectionPr
                                 {data.description}
                             </p>
 
-                            {/* Faint flight trail decoration */}
+                            {/* Flight trail */}
                             <div className="absolute right-2 top-4 pointer-events-none opacity-25 select-none hidden sm:block">
                                 <svg width="120" height="90" viewBox="0 0 120 90" fill="none">
                                     <path
@@ -162,23 +162,9 @@ export default function ContactSection({ data = site.contact }: ContactSectionPr
                                 fill
                                 className="object-cover object-center"
                             />
-                            {/* Dark gradient for badge */}
+                            {/* Dark gradient */}
                             <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
 
-                            {/* Quick assistance badge */}
-                            <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 bg-[#054553]/95 backdrop-blur-md rounded-xl p-3 sm:p-4 text-white flex items-center gap-3.5 shadow-xl border border-white/10">
-                                <div className="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center shrink-0">
-                                    <FaPhoneAlt className="w-4 h-4 text-white" />
-                                </div>
-                                <div>
-                                    <p className="text-xs text-white/80 font-normal leading-tight">
-                                        Need Quick Assistance?
-                                    </p>
-                                    <p className="text-sm sm:text-base font-bold text-white tracking-wide mt-0.5">
-                                        {data.cards.phone.number}
-                                    </p>
-                                </div>
-                            </div>
                         </div>
                     </div>
 

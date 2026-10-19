@@ -56,7 +56,7 @@ export default function PackageSection({ data = site.packages }: PackageSectionP
                         >
                             {/* Traveler panorama photo */}
                             <Image
-                                src="/images/why-us-3.jpg"
+                                src="/images/why-us-3.webp"
                                 alt="Traveler overlooking scenic bay"
                                 fill
                                 priority

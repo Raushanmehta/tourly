@@ -65,7 +65,7 @@ export default function Navbar({ data = site.navbar }: NavbarProps) {
                     </nav>
 
                     {/* CTA button desktop */}
-                    <div className="hidden sm:flex items-center">
+                    <div className="hidden lg:flex items-center">
                         <motion.div
                             whileHover={{ scale: 1.03 }}
                             whileTap={{ scale: 0.97 }}

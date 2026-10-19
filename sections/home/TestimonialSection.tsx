@@ -94,7 +94,7 @@ export default function TestimonialSection({ data = site.testimonials }: Testimo
                     </p>
                 </div>
 
-                {/* Shadcn UI Carousel with floating side navigation arrows */}
+                {/* Testimonials carousel */}
                 <div className="relative w-full group">
                     <Carousel
                         setApi={setApi}
@@ -118,7 +118,7 @@ export default function TestimonialSection({ data = site.testimonials }: Testimo
                         </CarouselContent>
                     </Carousel>
 
-                    {/* Floating Left navigation arrow */}
+                    {/* Left arrow */}
                     <motion.button
                         type="button"
                         whileHover={{ scale: 1.12 }}
@@ -130,7 +130,7 @@ export default function TestimonialSection({ data = site.testimonials }: Testimo
                         <FaChevronLeft className="text-sm sm:text-base pr-0.5" />
                     </motion.button>
 
-                    {/* Floating Right navigation arrow */}
+                    {/* Right arrow */}
                     <motion.button
                         type="button"
                         whileHover={{ scale: 1.12 }}

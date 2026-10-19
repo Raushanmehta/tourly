@@ -122,7 +122,7 @@ export default function AboutSection({
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.55, delay: 0.25 }}
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-5 gap-x-8 max-w-3xl mx-auto text-left mb-8"
+                    className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-y-5 gap-x-8 max-w-3xl mx-auto text-left mb-8"
                 >
                     {data.features.map((item) => {
                         const Icon = aboutIconMap[item.icon] || ShieldCheck;

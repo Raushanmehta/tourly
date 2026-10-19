@@ -33,7 +33,7 @@ export default function Topbar({ data = site.topbar }: TopbarProps) {
             initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.35, ease: "easeOut" }}
-            className="w-full bg-[#054553] text-white text-xs sm:text-[13px] font-sans border-b border-white/10"
+            className="hidden md:block w-full bg-[#054553] text-white text-xs sm:text-[13px] font-sans border-b border-white/10"
         >
             <div className="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 py-2.5 flex items-center justify-between gap-4">
                 {/* Left contact info */}

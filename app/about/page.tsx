@@ -1,4 +1,4 @@
-import PageTopSection from "@/components/common/PageTopSection";
+import BreadCrumb from "@/components/common/BreadCrumb";
 import AboutSection from "@/sections/home/AboutSection";
 import WhyChooseUsSection from "@/sections/home/WhyChooseUsSection";
 import TestimonialSection from "@/sections/home/TestimonialSection";
@@ -8,7 +8,7 @@ import { site } from "@/data/index";
 export default function AboutPage() {
     return (
         <main>
-            <PageTopSection
+            <BreadCrumb
                 title="About Us"
                 data={site.pageTopSection}
                 breadcrumbs={[

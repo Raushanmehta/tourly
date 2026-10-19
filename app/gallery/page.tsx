@@ -1,12 +1,11 @@
-import PageTopSection from "@/components/common/PageTopSection";
+import BreadCrumb from "@/components/common/BreadCrumb";
 import GallerySection from "@/sections/GallerySection";
-import CtaSection from "@/sections/home/CtaSection";
 import { site } from "@/data/index";
 
 export default function GalleryPage() {
     return (
         <main>
-            <PageTopSection
+            <BreadCrumb
                 title="Gallery"
                 data={site.pageTopSection}
                 breadcrumbs={[

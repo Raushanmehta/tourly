@@ -12,14 +12,14 @@ export interface BreadcrumbItem {
     href?: string;
 }
 
-interface PageTopSectionProps {
+export interface BreadCrumbProps {
     title?: string;
     breadcrumbs?: BreadcrumbItem[];
     bgImage?: string;
     data?: TourlyPageTopData;
 }
 
-export default function PageTopSection({
+export default function BreadCrumb({
     title,
     breadcrumbs = [
         { label: "Home", href: "/" },
@@ -27,8 +27,8 @@ export default function PageTopSection({
     ],
     bgImage,
     data = site.pageTopSection,
-}: PageTopSectionProps) {
-    const defaultBg = data?.bgImage || site.pageTopSection?.bgImage || "/images/page-top-bg.jpg";
+}: BreadCrumbProps) {
+    const defaultBg = data?.bgImage || site.pageTopSection?.bgImage || "/images/page-top-bg.webp";
     const defaultTitle = data?.defaultTitle || site.pageTopSection?.defaultTitle || "About Us";
     const activeBg = bgImage || defaultBg;
     const activeTitle = title || defaultTitle;
@@ -61,37 +61,46 @@ export default function PageTopSection({
                     {activeTitle}
                 </motion.h1>
 
-                {/* Frosted breadcrumb pill */}
+                {/* Breadcrumbs trail pill */}
                 <motion.nav
-                    initial={{ opacity: 0, y: 12 }}
+                    aria-label="Breadcrumbs"
+                    initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.55, delay: 0.12, ease: "easeOut" }}
-                    aria-label="Breadcrumb"
-                    className="inline-flex items-center gap-2 px-5 py-2 sm:px-6 sm:py-2.5 rounded-full bg-white/15 hover:bg-white/20 backdrop-blur-md border border-white/25 shadow-lg text-xs sm:text-sm text-white/90 transition-all select-none"
+                    transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
+                    className="inline-flex items-center px-4 py-1.5 sm:px-6 sm:py-2 rounded-full bg-black/25 backdrop-blur-md border border-white/15 text-xs sm:text-sm font-medium text-white shadow-sm"
                 >
-                    {breadcrumbs.map((item, index) => {
-                        const isLast = index === breadcrumbs.length - 1;
+                    <ol className="flex items-center flex-wrap justify-center gap-1.5 sm:gap-2">
+                        {breadcrumbs.map((crumb, index) => {
+                            const isLast = index === breadcrumbs.length - 1;
 
-                        return (
-                            <React.Fragment key={index}>
-                                {index > 0 && (
-                                    <FaChevronRight className="w-2.5 h-2.5 text-white/70 mx-0.5 shrink-0" />
-                                )}
-                                {item.href && !isLast ? (
-                                    <Link
-                                        href={item.href}
-                                        className="text-white/80 hover:text-white transition-colors font-normal cursor-pointer"
-                                    >
-                                        {item.label}
-                                    </Link>
-                                ) : (
-                                    <span className="font-bold text-white">
-                                        {item.label}
-                                    </span>
-                                )}
-                            </React.Fragment>
-                        );
-                    })}
+                            return (
+                                <li key={crumb.label} className="flex items-center gap-1.5 sm:gap-2">
+                                    {crumb.href && !isLast ? (
+                                        <Link
+                                            href={crumb.href}
+                                            className="text-white/85 hover:text-[#f15a24] transition-colors duration-200"
+                                        >
+                                            {crumb.label}
+                                        </Link>
+                                    ) : (
+                                        <span
+                                            className={`${isLast
+                                                ? "text-white font-semibold"
+                                                : "text-white/85"
+                                                }`}
+                                            aria-current={isLast ? "page" : undefined}
+                                        >
+                                            {crumb.label}
+                                        </span>
+                                    )}
+
+                                    {!isLast && (
+                                        <FaChevronRight className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-white/50 shrink-0" />
+                                    )}
+                                </li>
+                            );
+                        })}
+                    </ol>
                 </motion.nav>
             </div>
         </section>

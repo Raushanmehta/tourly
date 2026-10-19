@@ -71,9 +71,9 @@ export default function DestinationSection({ data = site.destinations }: Destina
                     </div>
                 </div>
 
-                {/* Interactive expanding cards row with mid-height floating arrow buttons */}
+                {/* Expanding cards */}
                 <div className="relative group">
-                    {/* Left floating navigation arrow */}
+                    {/* Left arrow */}
                     <motion.button
                         type="button"
                         whileHover={{ scale: 1.12 }}
@@ -85,7 +85,7 @@ export default function DestinationSection({ data = site.destinations }: Destina
                         <FaChevronLeft className="text-sm sm:text-base pr-0.5" />
                     </motion.button>
 
-                    {/* Right floating navigation arrow */}
+                    {/* Right arrow */}
                     <motion.button
                         type="button"
                         whileHover={{ scale: 1.12 }}
@@ -97,7 +97,7 @@ export default function DestinationSection({ data = site.destinations }: Destina
                         <FaChevronRight className="text-sm sm:text-base pl-0.5" />
                     </motion.button>
 
-                    {/* Interactive expanding cards row */}
+                    {/* Cards row */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}

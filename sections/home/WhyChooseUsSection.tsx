@@ -28,10 +28,10 @@ interface WhyChooseUsSectionProps {
 export default function WhyChooseUsSection({ data = site.whyChooseUs }: WhyChooseUsSectionProps) {
     return (
         <section className="relative w-full py-8 lg:py-12 bg-white overflow-hidden">
-            {/* World map watermark right */}
+            {/* World map */}
             <div className="absolute right-0 top-0 w-80 sm:w-96 h-80 sm:h-96 pointer-events-none opacity-[0.06] bg-[radial-gradient(#054553_1px,transparent_1px)] [background-size:16px_16px]" />
 
-            {/* Decorative faint location pin */}
+            {/* Location pin */}
             <FaMapMarkerAlt className="absolute top-12 right-12 sm:right-24 text-4xl sm:text-5xl text-[#38bdf8]/20 pointer-events-none hidden md:block" />
 
             {/* Bottom-left dot matrix */}
@@ -47,10 +47,10 @@ export default function WhyChooseUsSection({ data = site.whyChooseUs }: WhyChoos
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
                     {/* Left image collage */}
                     <div className="lg:col-span-6 relative">
-                        {/* Decorative orange back shape */}
+                        {/* Orange shape */}
                         <div className="absolute -top-4 -left-4 w-28 h-28 bg-gradient-to-br from-[#ea580c] to-[#f97316] rounded-2xl pointer-events-none -z-0" />
 
-                        {/* Decorative cyan back shape */}
+                        {/* Cyan shape */}
                         <div className="absolute top-1/2 -left-6 -translate-y-1/2 w-72 h-80 bg-[#e0f2fe]/60 rounded-3xl pointer-events-none -z-0" />
 
                         {/* Asymmetric 3-image collage */}
@@ -71,7 +71,7 @@ export default function WhyChooseUsSection({ data = site.whyChooseUs }: WhyChoos
                                 />
                             </motion.div>
 
-                            {/* Two right landscape images */}
+                            {/* Landscape images */}
                             <div className="col-span-6 flex flex-col gap-3 sm:gap-4">
                                 {/* Top landscape image */}
                                 <motion.div
@@ -145,7 +145,7 @@ export default function WhyChooseUsSection({ data = site.whyChooseUs }: WhyChoos
                             {data.description}
                         </motion.p>
 
-                        {/* 4 Feature cards grid */}
+                        {/* Feature cards */}
                         <motion.div
                             initial={{ opacity: 0, y: 18 }}
                             whileInView={{ opacity: 1, y: 0 }}

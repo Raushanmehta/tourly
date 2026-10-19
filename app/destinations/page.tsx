@@ -1,11 +1,11 @@
-import PageTopSection from "@/components/common/PageTopSection";
+import BreadCrumb from "@/components/common/BreadCrumb";
 import DestintaionSection from "@/sections/DestintaionSection";
 import { site } from "@/data/index";
 
 export default function DestinationsPage() {
     return (
         <main>
-            <PageTopSection
+            <BreadCrumb
                 title="Destinations"
                 data={site.pageTopSection}
                 breadcrumbs={[
